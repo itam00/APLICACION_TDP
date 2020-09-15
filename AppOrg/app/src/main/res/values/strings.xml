@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">AppOrg</string>
+    <string name="title_home">Pendientes</string>
+    <string name="title_calendar">Eventos</string>
+
+    <string name="ingrese_evento">nombre del evento</string>
+    <string name="ingrese_evento_descripcion">Descripcion</string>
+    <string name="hora_desde">Desde</string>
+    <string name="hora_hasta">Hasta</string>
+    <string name="nuevo_evento">Nuevo evento</string>
+    <string name="guardar">Guardar</string>
+    <string name="cancelar">Cancelar</string>
+
+    <string name="eventos_del_dia">Eventos del dia</string>
+
+    <string name="desde">A las: </string>
+    <string name="descripcion">Descripcion</string>
+    <string name="nombre">Nombre del evento</string>
+
+    <string name="todo_El_dia">Todo el dia</string>
+    <string name="nombre_recordatorio">Recordatorio</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_recordatorios_">Recordatorios_Activity</string>
+    <string name="Pendientes">Tareas Pendientes</string>
+    <string name="eventos">Eventos</string>
+
+
+</resources>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_notifications">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.apporg.Recordatorios.Recordatorios_fragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_recordatorios" />
+
+    <fragment
+        android:id="@+id/navigation_notifications"
+        android:name="com.example.apporg.fragment_calendario_personalizado"
+        android:label="@string/title_calendar"
+        tools:layout="@layout/fragment_fragment_calendario_personalizado" />
+</navigation>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    tools:context=".Eventos.Agregar_Evento_Activity">
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="casual"
+        android:text="@string/nuevo_evento"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/editText_hora_desde"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:fontFamily="casual"
+        android:hint="@string/hora_desde"
+        android:importantForAutofill="no"
+        android:text="00:00"
+        android:textSize="28sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <ImageButton
+        android:id="@+id/imageButton_hora_desde"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@null"
+        android:clickable="false"
+        app:layout_constraintBottom_toBottomOf="@+id/editText_hora_desde"
+        app:layout_constraintEnd_toEndOf="@+id/switch_todo_el_dia"
+        app:layout_constraintTop_toTopOf="@+id/editText_hora_desde"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/ic_hora_y_fecha"
+        tools:ignore="ContentDescription" />
+
+    <EditText
+        android:id="@+id/editText_nombre_evento"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:fontFamily="casual"
+        android:hint="@string/ingrese_evento"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName"
+        android:maxLength="20"
+        android:maxLines="2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <EditText
+        android:id="@+id/editText_descripcion_evento"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:fontFamily="casual"
+        android:hint="@string/ingrese_evento_descripcion"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName"
+        android:maxLength="80"
+        android:maxLines="4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.125"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_nombre_evento" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="casual"
+        android:text="@string/todo_El_dia"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/editText_descripcion_evento"
+        app:layout_constraintTop_toBottomOf="@+id/editText_descripcion_evento" />
+
+    <Switch
+        android:id="@+id/switch_todo_el_dia"
+        android:layout_width="83dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="20dp"
+        android:checked="true"
+        app:layout_constraintEnd_toEndOf="@+id/editText_descripcion_evento"
+        app:layout_constraintTop_toTopOf="@+id/textView" />
+
+    <ImageButton
+        android:id="@+id/button_guardar_evento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:background="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/editText_descripcion_evento"
+        app:srcCompat="@drawable/ic_confirmar" />
+
+    <ImageButton
+        android:id="@+id/button_cancelar_evento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/editText_hora_desde"
+        app:srcCompat="@drawable/ic_cerrar" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
