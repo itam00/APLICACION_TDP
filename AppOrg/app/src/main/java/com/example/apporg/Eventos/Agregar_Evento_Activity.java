@@ -83,6 +83,7 @@ public class Agregar_Evento_Activity extends AppCompatActivity {
         extras = getIntent().getExtras();
         fecha = extras.getString("fecha");
         volverIntent.putExtra("fecha",fecha);
+        getSupportActionBar().setTitle(getFechaFormateada(fecha));
 
         etNombreEvento = findViewById(R.id.editText_nombre_evento);
         etDescripcionEvento = findViewById(R.id.editText_descripcion_evento);
@@ -102,6 +103,7 @@ public class Agregar_Evento_Activity extends AppCompatActivity {
                     etHoraDesde.setTextColor(getResources().getColor(R.color.grisOscuro));
                     ibFechaDesde.setClickable(true);
                     ibFechaDesde.setEnabled(true);
+                    etHoraDesde.setText("00:00");
                 }
             }
         });
@@ -162,7 +164,7 @@ public class Agregar_Evento_Activity extends AppCompatActivity {
         BDSQLite conn = new BDSQLite(getApplication(),"bd_eventos",null,1);
         SQLiteDatabase db = conn.getWritableDatabase();
 
-        String nombre,descripcion,horaDesde,horaHasta;
+        String nombre,descripcion,horaDesde;
         nombre=etNombreEvento.getText().toString();
         descripcion = etDescripcionEvento.getText().toString();
         if(schTodoElDia.isChecked()){
@@ -301,7 +303,11 @@ public class Agregar_Evento_Activity extends AppCompatActivity {
 
         return existe;
     }
-
+    private String getFechaFormateada(String f){
+        String ff[] = f.split("/");
+        int mes = Integer.valueOf(ff[1])+1;
+        return ff[0]+"/"+mes+"/"+ff[2];
+    }
 
 
 }

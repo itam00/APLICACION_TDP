@@ -131,7 +131,6 @@ public class Recordatorios_fragment extends Fragment implements Agregar_recordat
                 } while (cursor.moveToNext());
             }
             else{
-                Toast.makeText(view.getContext(), "paso algo raro", Toast.LENGTH_SHORT).show();
             }
         }catch(Exception e){}
 

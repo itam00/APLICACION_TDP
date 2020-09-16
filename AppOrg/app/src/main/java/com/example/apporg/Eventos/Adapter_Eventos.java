@@ -1,5 +1,8 @@
 package com.example.apporg.Eventos;
 
+import android.app.AlarmManager;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
@@ -55,6 +58,7 @@ public class Adapter_Eventos extends RecyclerView.Adapter<Adapter_Eventos.ViewHo
         protected ImageButton ibEliminar,ibEditar;
         protected Adapter_Eventos adaptador;
 
+
         public ViewHolderDatos(@NonNull final View itemView, Adapter_Eventos adapter) {
             super(itemView);
             adaptador = adapter;
@@ -90,10 +94,20 @@ public class Adapter_Eventos extends RecyclerView.Adapter<Adapter_Eventos.ViewHo
                     Toast.makeText(context,"El evento fue eliminado correctamente",Toast.LENGTH_SHORT).show();
                     db.close();
 
-                    int pos=0;
+                    int pos=0,codigoNotif;
                     while(listDatos.get(pos).getNombre()!=tvNombreEvento.getText().toString())pos++;
+                    codigoNotif = listDatos.get(pos).getCodigoNotif();
                     listDatos.remove(pos);
                     adaptador.notifyItemRemoved(pos);
+
+
+                    Intent intent = new Intent(context, Notification_receiver.class);
+
+                    PendingIntent sender = PendingIntent.getBroadcast(context, codigoNotif, intent, 0);
+
+                    AlarmManager alarmManager = (AlarmManager) context.getSystemService(context.ALARM_SERVICE);
+                    alarmManager.cancel(sender);
+
 
                 }
             });
@@ -105,7 +119,7 @@ public class Adapter_Eventos extends RecyclerView.Adapter<Adapter_Eventos.ViewHo
                     int pos=0;
                     while(listDatos.get(pos).getNombre()!=tvNombreEvento.getText().toString())pos++;
                     intent.putExtra("fecha",listDatos.get(pos).getFecha());
-                    Toast.makeText(context,listDatos.get(pos).getFecha()+"",Toast.LENGTH_SHORT).show();
+
                     context.startActivity(intent);
                 }
             });

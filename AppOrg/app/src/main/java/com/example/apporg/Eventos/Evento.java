@@ -3,7 +3,15 @@ package com.example.apporg.Eventos;
 
 public class Evento {
     protected String nombre,descripcion,horaDesde,fecha;
-    protected int posicion;
+    protected int posicion,codigoNotif;
+
+    public void setCodigoNotif(int codigoNotif) {
+        this.codigoNotif = codigoNotif;
+    }
+
+    public int getCodigoNotif() {
+        return codigoNotif;
+    }
 
     public int getPosicion() {
         return posicion;

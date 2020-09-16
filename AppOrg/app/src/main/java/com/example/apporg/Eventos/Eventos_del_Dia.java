@@ -53,7 +53,7 @@ public class Eventos_del_Dia extends AppCompatActivity {
         Toolbar bar = findViewById(R.id.toolbar_eventos_del_dia);
         setSupportActionBar(bar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle(fecha);
+        getSupportActionBar().setTitle(getFechaFormateada(fecha));
 
         recycler= findViewById(R.id.recyclerId);
         recycler.setLayoutManager(new LinearLayoutManager(this));
@@ -86,7 +86,7 @@ public class Eventos_del_Dia extends AppCompatActivity {
         SQLiteDatabase db = conn.getReadableDatabase();
 
         String[] parametros= {fecha};
-        String[] campos= {Utilidades.CAMPO_NOMBRE,Utilidades.CAMPO_DESCRIPCION,Utilidades.CAMPO_HORADESDE,Utilidades.CAMPO_FECHA};
+        String[] campos= {Utilidades.CAMPO_NOMBRE,Utilidades.CAMPO_DESCRIPCION,Utilidades.CAMPO_HORADESDE,Utilidades.CAMPO_FECHA,Utilidades.CAMPO_NOTIF_ID};
 
         try{
             Cursor cursor = db.query(Utilidades.TABLA_EVENTOS,campos,Utilidades.CAMPO_FECHA+"=?",parametros,null,null,null);
@@ -97,13 +97,13 @@ public class Eventos_del_Dia extends AppCompatActivity {
                     evento.setDescripcion(cursor.getString(cursor.getColumnIndex(Utilidades.CAMPO_DESCRIPCION)));
                     evento.setHoraDesde(cursor.getString(cursor.getColumnIndex(Utilidades.CAMPO_HORADESDE)));
                     evento.setFecha(cursor.getString(cursor.getColumnIndex(Utilidades.CAMPO_FECHA)));
+                    evento.setCodigoNotif(Integer.valueOf(cursor.getString(cursor.getColumnIndex(Utilidades.CAMPO_NOTIF_ID))));
                     listDatos.add(evento);
                 } while (cursor.moveToNext());
 
 
             }
             else{
-                Toast.makeText(getApplication(), "paso algo raro"+parametros[0], Toast.LENGTH_SHORT).show();
             }
         }catch(Exception e){}
         Adapter_Eventos adaptador = new Adapter_Eventos(listDatos);
@@ -140,6 +140,6 @@ public class Eventos_del_Dia extends AppCompatActivity {
     private String getFechaFormateada(String f){
         String ff[] = f.split("/");
         int mes = Integer.valueOf(ff[1])+1;
-        return "Eventos del dia "+ff[0]+"/"+mes+"/"+ff[2];
+        return ff[0]+"/"+mes+"/"+ff[2];
     }
 }
